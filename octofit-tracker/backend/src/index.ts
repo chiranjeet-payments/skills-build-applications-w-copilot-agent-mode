@@ -1,8 +1,10 @@
 import express from 'express';
+import cors from 'cors';
 import './config/database.js';
 import { Activity, LeaderboardEntry, Team, User, Workout } from './models/index.js';
 
 const app = express();
+app.use(cors());
 const port = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
 const apiBaseUrl = codespaceName
