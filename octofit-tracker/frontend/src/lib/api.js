@@ -14,6 +14,10 @@ export function getApiBaseUrl() {
 }
 
 export function buildApiUrl(resource) {
+  if (/^https?:\/\//i.test(resource)) {
+    return resource;
+  }
+
   const safeResource = String(resource).replace(/^\/+|\/+$/g, '');
   return `${getApiBaseUrl()}/api/${safeResource}/`;
 }

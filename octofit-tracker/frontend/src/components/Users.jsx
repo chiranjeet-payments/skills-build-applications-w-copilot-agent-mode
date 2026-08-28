@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection } from '../lib/api.js';
+import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+
+const USERS_API_ENDPOINT = `${getApiBaseUrl()}/api/users/`;
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -11,7 +13,7 @@ export default function Users() {
 
     async function loadUsers() {
       try {
-        const data = await fetchCollection('users');
+        const data = await fetchCollection(USERS_API_ENDPOINT);
         if (!ignore) {
           setUsers(data);
         }

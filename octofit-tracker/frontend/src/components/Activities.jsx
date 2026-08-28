@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection } from '../lib/api.js';
+import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+
+const ACTIVITIES_API_ENDPOINT = `${getApiBaseUrl()}/api/activities/`;
 
 export default function Activities() {
   const [activities, setActivities] = useState([]);
@@ -11,7 +13,7 @@ export default function Activities() {
 
     async function loadActivities() {
       try {
-        const data = await fetchCollection('activities');
+        const data = await fetchCollection(ACTIVITIES_API_ENDPOINT);
         if (!ignore) {
           setActivities(data);
         }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection } from '../lib/api.js';
+import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+
+const WORKOUTS_API_ENDPOINT = `${getApiBaseUrl()}/api/workouts/`;
 
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
@@ -11,7 +13,7 @@ export default function Workouts() {
 
     async function loadWorkouts() {
       try {
-        const data = await fetchCollection('workouts');
+        const data = await fetchCollection(WORKOUTS_API_ENDPOINT);
         if (!ignore) {
           setWorkouts(data);
         }

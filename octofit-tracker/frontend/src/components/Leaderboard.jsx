@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection } from '../lib/api.js';
+import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+
+const LEADERBOARD_API_ENDPOINT = `${getApiBaseUrl()}/api/leaderboard/`;
 
 export default function Leaderboard() {
   const [rows, setRows] = useState([]);
@@ -11,7 +13,7 @@ export default function Leaderboard() {
 
     async function loadLeaderboard() {
       try {
-        const data = await fetchCollection('leaderboard');
+        const data = await fetchCollection(LEADERBOARD_API_ENDPOINT);
         if (!ignore) {
           setRows(data);
         }

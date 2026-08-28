@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection } from '../lib/api.js';
+import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+
+const TEAMS_API_ENDPOINT = `${getApiBaseUrl()}/api/teams/`;
 
 export default function Teams() {
   const [teams, setTeams] = useState([]);
@@ -11,7 +13,7 @@ export default function Teams() {
 
     async function loadTeams() {
       try {
-        const data = await fetchCollection('teams');
+        const data = await fetchCollection(TEAMS_API_ENDPOINT);
         if (!ignore) {
           setTeams(data);
         }
