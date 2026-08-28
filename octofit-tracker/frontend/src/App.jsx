@@ -4,6 +4,7 @@ import Leaderboard from './components/Leaderboard.jsx';
 import Teams from './components/Teams.jsx';
 import Users from './components/Users.jsx';
 import Workouts from './components/Workouts.jsx';
+import { getApiBaseUrl } from './lib/api.js';
 import './App.css';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             <h1 className="h2 mb-0">Fitness dashboard</h1>
           </div>
           <div className="text-muted small">
-            API: {import.meta.env.VITE_CODESPACE_NAME ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev` : 'http://localhost:8000'}
+            API: {getApiBaseUrl()}
           </div>
         </div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary rounded mt-3 px-3">

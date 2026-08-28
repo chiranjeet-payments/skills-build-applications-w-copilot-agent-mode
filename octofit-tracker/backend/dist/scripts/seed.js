@@ -87,6 +87,13 @@ async function seedDatabase() {
                 date: new Date('2026-08-21'),
             },
             {
+                userId: users[2]._id,
+                type: 'Yoga',
+                durationMinutes: 25,
+                caloriesBurned: 180,
+                date: new Date('2026-08-21'),
+            },
+            {
                 userId: users[3]._id,
                 type: 'Cycling',
                 durationMinutes: 38,

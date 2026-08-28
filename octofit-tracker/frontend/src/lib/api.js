@@ -6,6 +6,10 @@ export function getApiBaseUrl() {
     return `https://${normalized}-8000.app.github.dev`;
   }
 
+  if (typeof window !== 'undefined' && window.location.hostname.endsWith('.app.github.dev')) {
+    return `https://${window.location.hostname.replace(/-\d+\.app\.github\.dev$/, '-8000.app.github.dev')}`;
+  }
+
   return 'http://localhost:8000';
 }
 
