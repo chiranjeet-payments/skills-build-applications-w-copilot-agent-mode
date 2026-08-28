@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+import { fetchCollection } from '../lib/api.js';
 
-const TEAMS_API_ENDPOINT = `${getApiBaseUrl()}/api/teams/`;
+const TEAMS_API_ENDPOINT = 'https://shiny-doodle-q75j4p9v99q9369wx-8000.app.github.dev/api/teams/';
 
 export default function Teams() {
   const [teams, setTeams] = useState([]);

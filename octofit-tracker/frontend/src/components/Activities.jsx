@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection, getApiBaseUrl } from '../lib/api.js';
+import { fetchCollection } from '../lib/api.js';
 
-const ACTIVITIES_API_ENDPOINT = `${getApiBaseUrl()}/api/activities/`;
+const ACTIVITIES_API_ENDPOINT = 'https://shiny-doodle-q75j4p9v99q9369wx-8000.app.github.dev/api/activities/';
 
 export default function Activities() {
   const [activities, setActivities] = useState([]);
