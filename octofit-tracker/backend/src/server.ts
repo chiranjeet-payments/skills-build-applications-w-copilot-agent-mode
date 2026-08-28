@@ -62,3 +62,5 @@ export function startServer() {
     console.log(`OctoFit Tracker API listening at ${apiBaseUrl}`);
   });
 }
+
+startServer();

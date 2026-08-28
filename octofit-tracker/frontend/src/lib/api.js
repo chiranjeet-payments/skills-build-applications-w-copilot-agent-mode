@@ -26,12 +26,20 @@ export function normalizeCollection(payload) {
   if (Array.isArray(payload.results)) return payload.results;
   if (Array.isArray(payload.data)) return payload.data;
   if (Array.isArray(payload.items)) return payload.items;
+  if (Array.isArray(payload.docs)) return payload.docs;
 
   return [];
 }
 
 export async function fetchCollection(resource) {
-  const response = await fetch(buildApiUrl(resource));
+  const url = buildApiUrl(resource);
+
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (networkError) {
+    throw new Error(`Network error while loading ${resource}: ${networkError.message}`);
+  }
 
   if (!response.ok) {
     throw new Error(`Failed to load ${resource}: ${response.status}`);
