@@ -45,6 +45,8 @@ app.get('/api/workouts/', async (_request, response) => {
 app.get('/api/health', (_request, response) => {
     response.json({ status: 'ok' });
 });
-app.listen(port, () => {
-    console.log(`OctoFit Tracker API listening at ${apiBaseUrl}`);
-});
+export function startServer() {
+    return app.listen(port, () => {
+        console.log(`OctoFit Tracker API listening at ${apiBaseUrl}`);
+    });
+}
